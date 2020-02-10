@@ -1,10 +1,12 @@
 <h2>Result</h2>
-<% <% if @included %>
+<% if @included %>
   <% if @english_word %>
     <p>Congratulations! <%= @answer %> is a english word</p>
   <% else %>
     <p>Sorry, <%= @answer %> is not an english word</p>
   <% end %>
 <% else %>
-  <p>Sorry but <%= @answer %> can't be built out with <%= @letters %></p>
-<% end %> %>
+  <p>Sorry but <%= @answer %> can't be built out with <%= @letters.join(",") %></p>
+<% end %>
+
+<%= link_to "New Game", new_path %>

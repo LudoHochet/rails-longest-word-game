@@ -17,7 +17,7 @@ class GamesController < ApplicationController
   end
 
   def score
-    @answer = params[:word].upcase
+    @answer = params[:word]
     @english_word = english_word?(@answer)
     @letters = params[:letters].split
     @included = included?(@answer, @letters)
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
   private
 
   def included?(word, letters)
-    @answer.chars.all? { |letter| word.count(letter) <= letters.count(letter) }
+    word.chars.all? { |letter| word.count(letter) <= letters.count(letter) }
   end
 
   def english_word?(word)
